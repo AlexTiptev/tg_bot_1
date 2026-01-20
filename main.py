@@ -8,11 +8,8 @@ token = os.getenv("TOKEN")
 bot = telebot.TeleBot(token)
 
 print(bot)
-@bot.message_handler(commands = ['start'])
+@bot.message_handler()
 def url(message):
-    # markup = types.InlineKeyboardMarkup()
-    # btn1 = types.InlineKeyboardButton(text='Наш сайт', url='https://habr.com/ru/all/')
-    # markup.add(btn1)
-    bot.send_message(message.from_user.id, "Прив")
+    bot.send_message(message.from_user.id, message.text)
 
 bot.polling(none_stop=True, interval=0)
